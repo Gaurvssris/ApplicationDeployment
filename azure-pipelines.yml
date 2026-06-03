@@ -18,12 +18,14 @@ steps:
     backendAzureRmContainerName: 'tfstate'
     backendAzureRmKey: 'backup.tfstatefile'
 - task: TerraformTask@5
+  displayName: 'Terraform Plan'
   inputs:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/module'
     environmentServiceNameAzureRM: 'automation'
 - task: TerraformTask@5
+  displayName: 'Terraform apply'
   inputs:
     provider: 'azurerm'
     command: 'apply'
